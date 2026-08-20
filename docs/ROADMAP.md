@@ -29,7 +29,7 @@ Day 1 다음에 **"가짜 데이터로 끝까지 연결하는 뼈대"**를 먼�
       · **드릴** `console.error(process.argv)` 찍어서 앞 두 칸에 뭐가 있는지 관찰
       · 검증: 인자 없이 / 없는 경로 / 진짜 경로 3번, 종료 코드가 달라야 함
       · `feat: take target repo path from argv`
-- [ ] **T4** `.ts`/`.tsx` 파일 목록 — `node_modules`·`.next`·`.git`·`dist` 제외
+- [x] **T4** `.ts`/`.tsx` 파일 목록 — `node_modules`·`.next`·`.git`·`dist` 제외
       · 힌트 `fs.readdirSync(dir, { recursive: true })`
       · **정답: 14개** · **드릴** 제외 필터를 지우고 개수 관찰
       · `feat: collect ts/tsx files`
