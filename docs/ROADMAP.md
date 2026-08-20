@@ -18,7 +18,7 @@ Day 1 다음에 **"가짜 데이터로 끝까지 연결하는 뼈대"**를 먼�
 
 - [x] **T1** 레포 뼈대 — `package.json`(`type: module`), `tsconfig.json`, `.gitignore`
       · 검증 `npx tsx --version` · `chore: bootstrap TS project`
-- [ ] **T2** 화면에 찍은 글자를 파일로 보내기 ← **새 용어: 표준출력**
+- [x] **T2** 화면에 찍은 글자를 파일로 보내기 ← **새 용어: 표준출력**
       · `src/build.ts`가 `console.log(JSON.stringify({hello:"world"}))` 한 줄만
       · 검증 `npx tsx src/build.ts > out.json && cat out.json`
       · **드릴** 위에 `console.log("시작")` 한 줄 추가 후 `node -e "JSON.parse(require('fs').readFileSync('out.json','utf8'))"`
