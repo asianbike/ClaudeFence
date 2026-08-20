@@ -33,7 +33,7 @@ Day 1 다음에 **"가짜 데이터로 끝까지 연결하는 뼈대"**를 먼�
       · 힌트 `fs.readdirSync(dir, { recursive: true })`
       · **정답: 14개** · **드릴** 제외 필터를 지우고 개수 관찰
       · `feat: collect ts/tsx files`
-- [ ] **T5** grep 대조 → `docs/why-ast.md` 📌 **면접 재료**
+- [x] **T5** grep 대조 → `docs/why-ast.md` 📌 **면접 재료**
       · `grep -c "function" ../ru-vibe/components/capture/PolaroidCanvas.tsx` vs 실제 함수 수
       · 주석 속/문자열 속 `function`이 어떻게 잡히는지 숫자로 기록
       · `docs: why grep is not enough`
