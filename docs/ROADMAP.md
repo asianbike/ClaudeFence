@@ -48,7 +48,7 @@ Day 2~4는 이 안의 **내용만** 진짜로 바꾸는 작업이 된다.
       · 힌트: 배열 안에 `{ file, symbols: [{name, kind, exported}] }` 모양 객체 하나 정도
       · 검증 `npx tsx src/build.ts ../ru-vibe > symbol-map.json && cat symbol-map.json`
       · `feat: emit placeholder symbol map`
-- [ ] **T7** 가짜 `contract.json` — `.claudefence/contract.json`에 허용 파일 1개만 하드코딩
+- [x] **T7** 가짜 `contract.json` — `.claudefence/contract.json`에 허용 파일 1개만 하드코딩
       · 모양: `{ allowedFiles: ["..."], reason: "placeholder" }`
       · `feat: add placeholder contract`
 - [ ] **T8** 훅 뼈대 — stdin으로 JSON 받아 가짜 계약과 대조 ← **새 용어: 표준입력**
