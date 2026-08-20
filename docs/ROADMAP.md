@@ -44,7 +44,7 @@ Day 1 다음에 **"가짜 데이터로 끝까지 연결하는 뼈대"**를 먼�
 여기서 만드는 파일 경로(`symbol-map.json`, `.claudefence/contract.json`)는 최종 경로와 같다.
 Day 2~4는 이 안의 **내용만** 진짜로 바꾸는 작업이 된다.
 
-- [ ] **T6** 가짜 `symbol-map.json` — `build.ts`가 진짜 파싱 대신 하드코딩된 심볼 1~2개를 출력
+- [x] **T6** 가짜 `symbol-map.json` — `build.ts`가 진짜 파싱 대신 하드코딩된 심볼 1~2개를 출력
       · 힌트: 배열 안에 `{ file, symbols: [{name, kind, exported}] }` 모양 객체 하나 정도
       · 검증 `npx tsx src/build.ts ../ru-vibe > symbol-map.json && cat symbol-map.json`
       · `feat: emit placeholder symbol map`

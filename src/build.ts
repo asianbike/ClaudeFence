@@ -11,15 +11,6 @@ else{
         process.exit(1)
     }
 }
-console.log(JSON.stringify({hello:"world"}))
 
-const Tree=fs.readdirSync(process.argv[2],{recursive:true})
-
-for (const dir of Tree){
-    if ((!dir.includes("node_modules") && !dir.includes(".next") && !dir.includes(".git") && !dir.includes("dist")) 
-        && ((dir.endsWith(".ts")|| dir.endsWith(".tsx"))
-        && (!dir.endsWith(".d.ts"))) )
-        console.log(dir)
-    }
-
+console.log(JSON.stringify([{ file: "../ru-vibe/proxy.ts", symbols: [{ name: "proxy.ts", kind: "function", exported: true }] }]))
 
