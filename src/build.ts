@@ -1,2 +1,14 @@
-console.error("시작")
-console.log(JSON.stringify({hello:"world"}))!
+import fs from "node:fs"
+
+
+if (!process.argv[2]) {
+    console.error("argv[2] is required")
+    process.exit(1)
+}
+else{
+    if (!fs.existsSync(process.argv[2])) {
+        console.error("No such file or directory: " + process.argv[2])
+        process.exit(1)
+    }
+}
+console.log(JSON.stringify({hello:"world"}))

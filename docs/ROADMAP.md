@@ -24,7 +24,7 @@ Day 1 다음에 **"가짜 데이터로 끝까지 연결하는 뼈대"**를 먼�
       · **드릴** 위에 `console.log("시작")` 한 줄 추가 후 `node -e "JSON.parse(require('fs').readFileSync('out.json','utf8'))"`
       → 규칙 도출: **stdout엔 JSON 한 덩이만. 사람이 읽을 말은 전부 `console.error`**
       · `feat: emit JSON to stdout`
-- [ ] **T3** 대상 경로를 밖에서 받기 ← **새 용어: 실행 인자(process.argv)**
+- [x] **T3** 대상 경로를 밖에서 받기 ← **새 용어: 실행 인자(process.argv)**
       · 없으면 `console.error` + `process.exit(1)`
       · **드릴** `console.error(process.argv)` 찍어서 앞 두 칸에 뭐가 있는지 관찰
       · 검증: 인자 없이 / 없는 경로 / 진짜 경로 3번, 종료 코드가 달라야 함
