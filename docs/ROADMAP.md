@@ -51,7 +51,7 @@ Day 2~4는 이 안의 **내용만** 진짜로 바꾸는 작업이 된다.
 - [x] **T7** 가짜 `contract.json` — `.claudefence/contract.json`에 허용 파일 1개만 하드코딩
       · 모양: `{ allowedFiles: ["..."], reason: "placeholder" }`
       · `feat: add placeholder contract`
-- [ ] **T8** 훅 뼈대 — stdin으로 JSON 받아 가짜 계약과 대조 ← **새 용어: 표준입력**
+- [x] **T8** 훅 뼈대 — stdin으로 JSON 받아 가짜 계약과 대조 ← **새 용어: 표준입력**
       · **Day 1이 회수되는 지점**: T2는 화면 출력을 파일로 보냈다. 이번엔 반대로,
         Claude Code가 파일에 쓰기 직전 그 요청(JSON)을 훅 스크립트의 **입력**으로 흘려보낸다
       · 실제로 들어오는 필드: `tool_name`, `tool_input.file_path`, `cwd`, `hook_event_name` —
