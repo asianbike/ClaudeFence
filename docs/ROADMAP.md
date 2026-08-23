@@ -65,7 +65,7 @@ Day 2~4는 이 안의 **내용만** 진짜로 바꾸는 작업이 된다.
 
 ### Day 2 — 파싱 (① 완성)
 
-- [ ] **T9** 파서 붙이고 파일 1개만 뜯기 ← **새 용어: 노드 종류(node type)**
+- [x] **T9** 파서 붙이고 파일 1개만 뜯기 ← **새 용어: 노드 종류(node type)**
       · `npm i tree-sitter tree-sitter-typescript` (**버전 직접 지정 금지** → 이 문서의 「실측 정답지」)
       · `new Parser()` → `setLanguage(TS.tsx)` → `parse(src)` → `tree.rootNode.namedChildren`
       · 각 자식의 `.type`, `.startPosition.row + 1`을 **`console.error`로** 출력 (T2 규칙!)
