@@ -71,7 +71,7 @@ Day 2~4는 이 안의 **내용만** 진짜로 바꾸는 작업이 된다.
       · 각 자식의 `.type`, `.startPosition.row + 1`을 **`console.error`로** 출력 (T2 규칙!)
       · **드릴** `TS.tsx` 대신 `TS.typescript`로 `.tsx` 파싱 → 뭐가 달라지나
       · `feat: parse a single file with tree-sitter`
-- [ ] **T10** 최상위 심볼 추출 → `{ name, kind, exported, default, line }`
+- [x] **T10** 최상위 심볼 추출 → `{ name, kind, exported, default, line }`
       · 대상: `function_declaration`, `lexical_declaration`, 이들을 **감싸는** `export_statement`
       · **경계 사례** `next.config.ts`의 `export default nextConfig;` — 선언이 없다.
         처리 방식과 **그 이유를 커밋 메시지에** 쓴다
