@@ -21,6 +21,7 @@ const raw = fs.readFileSync("../ru-vibe/app/layout.tsx", "utf-8")
 const tree = parser.parse(raw)
 
 let array=[]
+let imports=[]
 for (const node of tree.rootNode.namedChildren) {
 
     let res={ name: "", kind: "", exported: false, default: false, line: 0 }
@@ -46,6 +47,7 @@ for (const node of tree.rootNode.namedChildren) {
         }
     } 
     else if (node.type === "export_statement") {
+        
         exported=true
         if (node.text.includes("default")) {
             defaultval=true
@@ -70,19 +72,53 @@ for (const node of tree.rootNode.namedChildren) {
             }
         }
     }
+    else if (node.type === "import_statement") {
+        let exportarray={source:"", kind:"",names:[],typeOnly:false,line:0,resolved:null}
+        exportarray.line=line
+        exportarray.typeOnly=node.text.startsWith("import type")
+        const sourceNode = node.namedChildren
+        for(const child of sourceNode){
+            if (child.type==="string"){
+                exportarray.source=child.text
+            }
+        }
+        let flag=0
+        for(const child of sourceNode){
+            if (child.type==="import_clause"){
+                flag=1
+                if (child.text.startsWith("{")){
+                    exportarray.kind="named"
+                    exportarray.names=child.namedChildren[0].namedChildren.map(n => n.text)
+                }
+                else if (child.text.startsWith("*")){
+                    exportarray.kind="namespace"
+                    exportarray.names=[]
+                }
+                else{
+                    exportarray.kind="default"
+                    exportarray.names=[child.namedChildren[0].text]
+                }
+            }
+            else{
+                if (flag===0){
+                    exportarray.kind="side-effect"
+                    exportarray.names=[]
+                }
+            }
+    }
+
+        imports.push(exportarray)
+        continue
+    }
     else{
         continue
     }
-    res.name=name
-    res.kind=kind
-    res.exported=exported
-    res.default=defaultval
-    res.line=line
-    array.push(res)
+        res.name=name
+        res.kind=kind
+        res.exported=exported
+        res.default=defaultval
+        res.line=line
+        array.push(res)
 
-}
-console.log(JSON.stringify(array))
-console.error(JSON.stringify(array))
-
-/*만들 것: src/build.ts 안에 top-level 심볼을 뽑는 로직 (함수로 분리하든 말든 네 판단) 
-— tree.rootNode.namedChildren을 순회하면서 위 규칙대로 {name, kind, exported, default, line} 객체 배열을 만들어라. */
+    }
+console.log(JSON.stringify({symbols: array, imports: imports}))

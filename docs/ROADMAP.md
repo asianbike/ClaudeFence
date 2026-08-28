@@ -77,7 +77,7 @@ Day 2~4는 이 안의 **내용만** 진짜로 바꾸는 작업이 된다.
         처리 방식과 **그 이유를 커밋 메시지에** 쓴다
       · 오늘은 최상위만. 중첩 함수·화살표 컴포넌트는 Day 3
       · `feat: extract top-level symbols`
-- [ ] **T11** import 추출 → `{ source, kind, names, typeOnly, line, resolved: null }`
+- [x] **T11** import 추출 → `{ source, kind, names, typeOnly, line, resolved: null }`
       · `kind`: default / named / namespace / side-effect (ru-vibe에 4종 다 있음)
       · 검증: side-effect import(`./globals.css`)가 빠지지 않았는지
       · `feat: extract imports`
