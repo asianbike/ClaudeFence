@@ -81,7 +81,7 @@ Day 2~4는 이 안의 **내용만** 진짜로 바꾸는 작업이 된다.
       · `kind`: default / named / namespace / side-effect (ru-vibe에 4종 다 있음)
       · 검증: side-effect import(`./globals.css`)가 빠지지 않았는지
       · `feat: extract imports`
-- [ ] **T12** 조립 + `stats` → `symbol-map.json` ✅ **1단계 완료** — T6의 가짜 데이터를 진짜로 교체
+- [x] **T12** 조립 + `stats` → `symbol-map.json` ✅ **1단계 완료** — T6의 가짜 데이터를 진짜로 교체
       · `feat: emit full symbol map`
 
 ### Day 3 — 지도 완성

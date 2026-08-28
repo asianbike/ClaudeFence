@@ -20,9 +20,13 @@ parser.setLanguage(TS.tsx);
 const raw = fs.readFileSync("../ru-vibe/app/layout.tsx", "utf-8")
 const tree = parser.parse(raw)
 
-let array=[]
-let imports=[]
-for (const node of tree.rootNode.namedChildren) {
+
+function parseFile(filePath: string) {
+    const raw = fs.readFileSync(filePath, "utf-8")
+    const tree = parser.parse(raw)
+    let array=[]
+    let imports=[]
+    for (const node of tree.rootNode.namedChildren) {
 
     let res={ name: "", kind: "", exported: false, default: false, line: 0 }
     let name=""
@@ -121,4 +125,29 @@ for (const node of tree.rootNode.namedChildren) {
         array.push(res)
 
     }
-console.log(JSON.stringify({symbols: array, imports: imports}))
+    return ({symbols: array, imports: imports})
+}
+
+import path from "node:path";
+
+const baseDir = process.argv[2];
+const entries = fs.readdirSync(baseDir, { recursive: true });
+
+const files = [];
+for (const entry of entries) {
+    if (
+        (entry.endsWith(".ts") || entry.endsWith(".tsx")) &&
+        !entry.endsWith(".d.ts") &&
+        !entry.includes("node_modules") &&
+        !entry.includes(".next") &&
+        !entry.includes(".git") &&
+        !entry.includes("dist")
+    ) {
+        const filePath = path.join(baseDir, entry);
+        const { symbols, imports } = parseFile(filePath);
+        files.push({ file: entry, symbols, imports });
+    }
+}
+
+const stats = { files: files.length };
+console.log(JSON.stringify({ files, stats }));
