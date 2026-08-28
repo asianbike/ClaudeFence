@@ -77,7 +77,7 @@ function parseFile(filePath: string) {
         }
     }
     else if (node.type === "import_statement") {
-        let exportarray={source:"", kind:"",names:[],typeOnly:false,line:0,resolved:null}
+        let exportarray={source:"", kind:"",names:[] as string[],typeOnly:false,line:0,resolved:null}
         exportarray.line=line
         exportarray.typeOnly=node.text.startsWith("import type")
         const sourceNode = node.namedChildren
@@ -92,7 +92,7 @@ function parseFile(filePath: string) {
                 flag=1
                 if (child.text.startsWith("{")){
                     exportarray.kind="named"
-                    exportarray.names=child.namedChildren[0].namedChildren.map(n => n.text)
+                    exportarray.names=child.namedChildren[0].namedChildren.map(n => n.text) 
                 }
                 else if (child.text.startsWith("*")){
                     exportarray.kind="namespace"
@@ -100,7 +100,7 @@ function parseFile(filePath: string) {
                 }
                 else{
                     exportarray.kind="default"
-                    exportarray.names=[child.namedChildren[0].text]
+                    exportarray.names=[child.namedChildren[0].text] 
                 }
             }
             else{
@@ -131,7 +131,7 @@ function parseFile(filePath: string) {
 import path from "node:path";
 
 const baseDir = process.argv[2];
-const entries = fs.readdirSync(baseDir, { recursive: true });
+const entries = fs.readdirSync(baseDir, { recursive: true ,encoding: "utf-8"});
 
 const files = [];
 for (const entry of entries) {
