@@ -1,25 +1,25 @@
 # ClaudeFence
 
-AI 코딩 에이전트가 요청 범위 밖의 파일을 건드리려 하면 실시간으로 차단하는 가드레일.
+A guardrail that blocks an AI coding agent in real time when it tries to touch files outside the requested scope.
 
-## 어떻게 동작하는가
+## How it works
 
-1. tree-sitter로 대상 레포 전체를 파싱해 심볼 지도(`symbol-map.json`)를 만든다
-2. *(예정)* Claude API로 사용자 요청을 "이 요청은 이 파일들만 건드려도 된다"는 계약(`contract.json`)으로 바꾼다
-3. Claude Code의 PreToolUse 훅이 실제 Edit/Write 요청을 이 계약과 대조해, 범위 밖이면 차단한다
+1. tree-sitter parses the whole target repo into a symbol map (`symbol-map.json`)
+2. *(planned)* the Claude API turns the user's request into a contract (`contract.json`) — "this request may only touch these files"
+3. a Claude Code PreToolUse hook checks every real Edit/Write against that contract and blocks it if it's out of scope
 
-## 현재 상태 (2026-09-03, Day 2 T12 완료)
+## Current status (2026-09-03, Day 2 T12 done)
 
-- [x] 실제 레포(`../ru-vibe`, TS/TSX 14개 파일)에서 심볼·임포트 지도 추출
-- [x] PreToolUse 훅이 계약과 대조해 exit code로 실제 차단/허용 — 단, 계약은 아직 파일 1개짜리 하드코딩 placeholder
-- [ ] Claude API로 요청 → 계약 자동 생성
-- [ ] 함수 단위 스코프 판정 (현재는 파일 단위)
+- [x] Symbol/import map extracted from a real repo (`../ru-vibe`, 14 TS/TSX files)
+- [x] PreToolUse hook actually blocks/allows via exit code — but the contract is still a hardcoded, single-file placeholder
+- [ ] Auto-generate the contract from a request via the Claude API
+- [ ] Function-level scope checks (file-level only for now)
 
-## 한계 (정직하게)
+## Limitations (honest)
 
-- 계약이 아직 손으로 쓴 placeholder다. 자동 생성은 다음 단계에서 붙인다
-- 스코프 판정이 파일 단위다. 함수 단위 판정은 아직 없다
+- The contract is still a hand-written placeholder. Auto-generation is the next step.
+- Scope checks are file-level only. No function-level granularity yet.
 
-## 개발 로그
+## Dev log
 
-태스크별 진행과 커밋 기록은 `docs/ROADMAP.md` 참고.
+Task-by-task progress and commits: see `docs/ROADMAP.md`.
