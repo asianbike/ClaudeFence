@@ -8,6 +8,10 @@ A guardrail that blocks an AI coding agent in real time when it tries to touch f
 2. *(planned)* the Claude API turns the user's request into a contract (`contract.json`) — "this request may only touch these files"
 3. a Claude Code PreToolUse hook checks every real Edit/Write against that contract and blocks it if it's out of scope
 
+## Demo
+
+_(video coming soon)_
+
 ## Current status (2026-09-03, Day 2 T12 done)
 
 - [x] Symbol/import map extracted from a real repo (`../ru-vibe`, 14 TS/TSX files)
