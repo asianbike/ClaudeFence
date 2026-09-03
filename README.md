@@ -12,7 +12,7 @@ A guardrail that blocks an AI coding agent in real time when it tries to touch f
 
 _(video coming soon)_
 
-## Current status (2026-09-03, Day 2 T12 done)
+## Current status (2026-09-03, T12 done)
 
 - [x] Symbol/import map extracted from a real repo (`../ru-vibe`, 14 TS/TSX files)
 - [x] PreToolUse hook actually blocks/allows via exit code — but the contract is still a hardcoded, single-file placeholder
